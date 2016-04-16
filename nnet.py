@@ -26,7 +26,7 @@ trndata._convertToOneOfMany()
 tstdata._convertToOneOfMany()
 fnn = buildNetwork(trndata.indim, 64 , trndata.outdim, outclass=SoftmaxLayer)#construct a network with random initial values, first value is the dimension of input vectors, second value is dimension of hidden layers, third value is dimension of output
 trainer = BackpropTrainer(fnn, dataset=trndata, momentum=0.1, learningrate=.001 , verbose=True, weightdecay=0.01) 
-for i in range (0,100):#run for 5000 epochs
+for i in range (0,10000):#run for 5000 epochs
     print('Percent Error on Test dataset after training for epochs: ', i, ' ' , percentError( trainer.testOnClassData (dataset=tstdata ), tstdata['class'] ))#return percent error
     log = open('finallogfile.txt','a')
     log.write(str(percentError(trainer.testOnClassData (dataset=tstdata ), tstdata['class'])))
