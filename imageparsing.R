@@ -31,7 +31,7 @@
   bw.image <- channel(color.image,"red") - channel(color.image,"green")#grayscale image
   bw.image <- transpose(matrix(as.array(bw.image[seq(1,imgsize[1]*imgsize[2],scalefactorhoriz)]),imgsize[1]/scalefactorhoriz))#scale horizontal
   bw.image <- transpose(matrix(as.array(bw.image[seq(1,imgsize[2]*imgsize[1]/scalefactorhoriz,scalefactorvert)]),imgsize[2]/scalefactorvert))#scalevertical
-  writeImage(bw.image,paste("tempimages/",i,".jpg",sep='',collapse=''))
+  writeImage(bw.image,paste("tempimages/",formatC(i, width = 6, format = "d", flag = "0"),".jpg",sep='',collapse=''))
   data <- c(data,as.vector(bw.image)) #concatenate the data from the new image onto our dataset
   }
   #setwd('..')#write outside the training data
